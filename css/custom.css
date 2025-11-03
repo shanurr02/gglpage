@@ -6507,3 +6507,36 @@ a.new_mem_btn {
         background: linear-gradient(91deg, #240046 0%, #51019C 34%, #6402C1 73%, #8503FF 100%) !important;
     }
 }
+
+
+
+/* Footer link styles */
+.footer-links a {
+    color: #ffffff !important;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 15px;
+}
+
+.footer-links a:hover {
+    color: #FFD000 !important;
+    text-decoration: none;
+}
+
+/* Separator color */
+.footer-links .text-muted {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Ensure text remains white in footer */
+.footer,
+.footer p,
+.footer span,
+.footer h1,
+.footer h2,
+.footer h3,
+.footer h4,
+.footer h5,
+.footer h6 {
+    color: #ffffff !important;
+}
