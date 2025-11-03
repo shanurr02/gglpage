@@ -4382,7 +4382,7 @@ nav.package-lists::before {
 
 
 /*--------------- new-design-style starts here -----------------*/
-.navbar-brand.logo img {
+/* .navbar-brand.logo img {
     max-height: 60px;
     width: auto;
     object-fit: contain;
@@ -4390,6 +4390,17 @@ nav.package-lists::before {
     border-radius: 8px;
     padding: 3px;
     transition: all 0.3s ease;
+} */
+
+.navbar-brand.logo img {
+    max-height: 60px;
+    width: auto;
+    object-fit: contain;
+    border: 2px solid #FFD000;  /* Yellow border for better visibility */
+    border-radius: 6px;
+    padding: 2px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;  /* Ensures border is included in element's dimensions */
 }
 
 /* Responsive adjustments */
@@ -4412,7 +4423,7 @@ nav.package-lists::before {
 
 @media (max-width: 767.98px) {
     .navbar-brand.logo img {
-        max-height: 48px;
+        max-height: 40px;
         border-width: 1.5px;
         border-radius: 6px;
         padding: 2px;
@@ -4422,7 +4433,7 @@ nav.package-lists::before {
 
 @media (max-width: 575.98px) {
     .navbar-brand.logo img {
-        max-height: 44px;
+        max-height: 36px;
         border-width: 1.25px;
         border-radius: 5px;
         padding: 2px;
@@ -4432,7 +4443,7 @@ nav.package-lists::before {
     /* Extra small devices (portrait phones, less than 400px) */
     @media (max-width: 400px) {
         .navbar-brand.logo img {
-            max-height: 40px;
+            max-height: 32px;
             border-width: 1px;
             border-radius: 4px;
             padding: 1.5px;
@@ -6465,3 +6476,34 @@ a.new_mem_btn {
     background-position:center center;
     background-size:cover;
 }*/
+
+
+/* Add this to your custom.css file */
+.header {
+    background: linear-gradient(91deg, #240046 0%, #51019C 34%, #6402C1 73%, #8503FF 100%) !important;
+}
+
+.add-header-bg {
+    background: linear-gradient(91deg, #240046 0%, #51019C 34%, #6402C1 73%, #8503FF 100%) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Update text colors for better contrast */
+.header-navbar-rht > li > a,
+.header-navbar-rht .dropdown-toggle {
+    color: #ffffff !important;
+}
+
+/* Update dropdown menu background */
+.header-navbar-rht .dropdown-menu {
+    background: #ffffff;
+    border: none;
+    box-shadow: 0 0 28px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Update mobile menu colors */
+@media (max-width: 991.98px) {
+    .header-nav {
+        background: linear-gradient(91deg, #240046 0%, #51019C 34%, #6402C1 73%, #8503FF 100%) !important;
+    }
+}
