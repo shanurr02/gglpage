@@ -4400,7 +4400,7 @@ nav.package-lists::before {
     border-radius: 6px;
     padding: 2px;
     transition: all 0.3s ease;
-    box-sizing: border-box;  /* Ensures border is included in element's dimensions */
+    /* box-sizing: border-box;  Ensures border is included in element's dimensions */
 }
 
 /* Responsive adjustments */
