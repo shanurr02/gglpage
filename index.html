@@ -1020,14 +1020,13 @@
                                         <div class="owl-item cloned" style="width: 664.333px; margin-right: 25px;">
                                             <div class="item">
                                                 <div class="testi-box new-testi-box">
-                                                    <div class="rating d-flex align-items-center">
-                                                        <i class="fas fa-star filled"></i><i
-                                                            class="fas fa-star filled"></i><i
-                                                            class="fas fa-star filled"></i><i
-                                                            class="fas fa-star filled"></i><i
-                                                            class="fas fa-star filled"></i><i
-                                                            class="fas fa-star filled"></i>
-                                                    </div>
+                                                   <div class="rating d-flex align-items-center">
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star text-warning"></i>
+    <i class="fas fa-star text-warning"></i>
+</div>
                                                     <h4>🌟 Gearnsggl changed my mindset</h4>
                                                     <p>Joining Gearnsggl completely changed how I see digital business.
                                                         The mentorship and practical courses helped me build confidence
@@ -1644,7 +1643,7 @@
                             <span class="text-muted">|</span>
                             <a href="#">Contact Us</a>
                         </nav>
-                        <p class="mb-0 small text-muted">© 2025 Go Earns — The Smartest Affiliate Revolution | All
+                        <p class="mb-0 small text-muted">© 2025 Goearns Global Learning Pvt Ltd — The Smartest Affiliate Revolution | All
                             Rights Reserved</p>
                     </div>
                 </div>
@@ -1696,6 +1695,43 @@
             $('#collapseOne').addClass('show');
             $('#headingOne .fa-plus').removeClass('fa-plus').addClass('fa-minus');
             
+            // Function to handle FAQ item click
+            function handleFaqClick(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                var $button = $(this);
+                var targetId = $button.attr('data-target');
+                var $target = $(targetId);
+                
+                if ($target.length === 0) return;
+                
+                // Close all other open items first
+                $('.collapse').not($target).each(function() {
+                    var $otherTarget = $(this);
+                    if ($otherTarget.hasClass('show')) {
+                        $otherTarget.collapse('hide');
+                        $otherTarget.prev('.card-header').find('i')
+                            .removeClass('fa-minus')
+                            .addClass('fa-plus');
+                    }
+                });
+                
+                // Toggle current item
+                $target.collapse('toggle');
+                
+                // Update icon for current item
+                if ($target.hasClass('show')) {
+                    $button.find('i')
+                        .removeClass('fa-plus')
+                        .addClass('fa-minus');
+                } else {
+                    $button.find('i')
+                        .removeClass('fa-minus')
+                        .addClass('fa-plus');
+                }
+            }
+            
             // Initialize all FAQ items
             $('.card').each(function() {
                 var $card = $(this);
@@ -1706,7 +1742,7 @@
                 // Make sure the target exists
                 if ($target.length === 0) return;
                 
-                // Initialize icon
+                // Initialize icon if not exists
                 if ($button.find('i').length === 0) {
                     $button.append('<i class="fas fa-plus ml-2" style="transition: all 0.3s ease;"></i>');
                 }
@@ -1715,32 +1751,9 @@
                 if ($target.hasClass('show')) {
                     $button.find('i').removeClass('fa-plus').addClass('fa-minus');
                 }
-            });
-            
-            // Handle show/hide events
-            $('.collapse').on('show.bs.collapse', function() {
-                var $header = $(this).prev('.card-header');
-                $header.find('i').removeClass('fa-plus').addClass('fa-minus');
                 
-                // Close other open items
-                $('.collapse').not(this).collapse('hide');
-            }).on('shown.bs.collapse', function() {
-                // Ensure only one is open at a time
-                $('.collapse').not(this).removeClass('show');
-            }).on('hide.bs.collapse', function() {
-                var $header = $(this).prev('.card-header');
-                $header.find('i').removeClass('fa-minus').addClass('fa-plus');
-            });
-            
-            // Handle clicks on FAQ items
-            $('.card-header .btn-link').on('click', function(e) {
-                e.preventDefault();
-                var $button = $(this);
-                var $target = $($button.attr('data-target'));
-                
-                if ($target.length) {
-                    $target.collapse('toggle');
-                }
+                // Remove any existing click handlers and add new one
+                $button.off('click.faq').on('click.faq', handleFaqClick);
             });
 
             $('.card-header .btn-link').on('click', function (e) {
