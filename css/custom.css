@@ -5617,7 +5617,7 @@ input[readonly].yellow-bg {
     }
 
     .logo {
-        width: unset;
+        /* width: unset; */
         padding: 2px 0px;
     }
 
